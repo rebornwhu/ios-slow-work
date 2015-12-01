@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         let resultsSummary = "First: [\(firstResult)\nSecond: [\(secondResult)]"
         self.resultsTextView.text = resultsSummary
         let endTime = NSDate()
-        print("Completed in \(endTime.timeIntervalSinceDate(startTime))")
+        print("Completed in \(endTime.timeIntervalSinceDate(startTime)) seconds")
     }
     
     override func viewDidLoad() {
