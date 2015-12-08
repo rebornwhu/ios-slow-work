@@ -43,16 +43,25 @@ class ViewController: UIViewController {
         dispatch_async(queue) {
             let fetchedData = self.fetchSomethingFromServer()
             let processedData = self.processData(fetchedData)
-            let firstResult = self.calculateFirstResult(processedData)
-            let secondResult = self.calculateSecondResult(processedData)
-            let resultsSummary = "First: [\(firstResult)]\nSecond: [\(secondResult)]"
-            dispatch_async(dispatch_get_main_queue()) {
-                self.resultsTextView.text = resultsSummary
-                self.startButton.enabled = true
-                self.spinner.stopAnimating()
+            var firstResult: String!
+            var secondResult: String!
+            let group = dispatch_group_create()
+            dispatch_group_async(group, queue) {
+                firstResult = self.calculateFirstResult(processedData)
             }
-            let endTime = NSDate()
-            print("Completed in \(endTime.timeIntervalSinceDate(startTime)) seconds")
+            dispatch_group_async(group, queue) {
+                secondResult = self.calculateSecondResult(processedData)
+            }
+            dispatch_group_notify(group, queue) {
+                let resultsSummary = "First: [\(firstResult)]\nSecond: [\(secondResult)]"
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.resultsTextView.text = resultsSummary
+                    self.startButton.enabled = true
+                    self.spinner.stopAnimating()
+                }
+                let endTime = NSDate()
+                print("Completed in \(endTime.timeIntervalSinceDate(startTime)) seconds")
+            }
         }
     }
     
