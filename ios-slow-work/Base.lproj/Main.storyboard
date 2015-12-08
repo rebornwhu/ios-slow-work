@@ -33,20 +33,27 @@
                                     <action selector="doWork:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ojR-BT-PXc"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vh1-aC-q6T">
+                                <rect key="frame" x="356" y="33" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Guc-Zc-XDB" firstAttribute="top" secondItem="sdY-zo-0nb" secondAttribute="bottom" constant="24" id="EvY-qQ-Zsl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Guc-Zc-XDB" secondAttribute="bottom" constant="20" id="Nuh-Yz-jPL"/>
+                            <constraint firstItem="sdY-zo-0nb" firstAttribute="centerY" secondItem="vh1-aC-q6T" secondAttribute="centerY" id="Rql-ld-gxu"/>
                             <constraint firstItem="sdY-zo-0nb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="iyW-PU-3To"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Guc-Zc-XDB" secondAttribute="trailing" id="lqE-hA-Zb9"/>
                             <constraint firstItem="sdY-zo-0nb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mUX-Oz-6WQ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Guc-Zc-XDB" secondAttribute="leading" id="rP4-Hp-nCQ"/>
+                            <constraint firstItem="vh1-aC-q6T" firstAttribute="leading" secondItem="sdY-zo-0nb" secondAttribute="trailing" constant="8" id="rva-wC-shq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="resultsTextView" destination="Guc-Zc-XDB" id="5D5-Ua-TKA"/>
+                        <outlet property="spinner" destination="vh1-aC-q6T" id="KuG-Sx-Etm"/>
                         <outlet property="startButton" destination="sdY-zo-0nb" id="EHc-Bi-Gvp"/>
                     </connections>
                 </viewController>
